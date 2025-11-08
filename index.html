@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Scoreboard -->
+  <div class="score-container">
+    <div class="logo">
+      <p>ROCK</p>
+      <p>PAPER</p>
+      <p>SCISSORS</p>
+    </div>
+    <div class="score-box">
+      <div class="score-item">
+        <p>COMPUTER<br />SCORE</p>
+        <span id="computerScore">0</span>
+      </div>
+      <div class="score-item">
+        <p>YOUR<br />SCORE</p>
+        <span id="userScore">0</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Options -->
+  <div class="game" id="game">
+    <div class="circle rock" data-choice="rock">✊</div>
+    <div class="circle paper" data-choice="paper">✋</div>
+    <div class="circle scissors" data-choice="scissors">✌️</div>
+  </div>
+
+  <!-- Result Screen -->
+  <div class="result-screen" id="resultScreen">
+    <div class="result-side">
+      <p>YOU PICKED</p>
+      <div id="userPick" class="pick"></div>
+    </div>
+
+    <div class="result-text">
+      <h2 id="resultMessage">YOU WIN</h2>
+      <p>AGAINST PC</p>
+      <button id="playAgain">PLAY AGAIN</button>
+    </div>
+
+    <div class="result-side">
+      <p>PC PICKED</p>
+      <div id="computerPick" class="pick"></div>
+    </div>
+  </div>
+
+  <!-- Hurray Screen -->
+  <div class="hurray-screen" id="hurrayScreen">
+    <div class="trophy">🏆</div>
+    <h1>HURRAY!!</h1>
+    <p>YOU WON THE GAME</p>
+    <button id="playAgainHurray">PLAY AGAIN</button>
+  </div>
+
+  <!-- Bottom Buttons -->
+  <div class="bottom-buttons">
+    <button id="rulesBtn">RULES</button>
+    <button id="nextBtn" style="display: none;">NEXT</button>
+  </div>
+
+  <!-- Rules Popup -->
+  <div class="rules-popup" id="rulesPopup">
+    <div class="rules-content">
+      <h3>Game Rules</h3>
+      <ul>
+        <li>Rock beats Scissors</li>
+        <li>Scissors beat Paper</li>
+        <li>Paper beats Rock</li>
+        <li>If both players choose the same, it’s a tie</li>
+      </ul>
+      <button id="closeRules">X</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

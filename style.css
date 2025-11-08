@@ -1,0 +1,263 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #8cc461;
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 20px 30px;
+  width: 80%;
+  max-width: 700px;
+  margin-top: 40px;
+}
+
+.logo p {
+  margin: 0;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.score-box {
+  display: flex;
+  gap: 20px;
+}
+
+.score-item {
+  background-color: white;
+  color: #333;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px 20px;
+  width: 120px;
+}
+
+.score-item p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+}
+
+.score-item span {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2b2b2b;
+}
+
+/* Game Choices */
+.game {
+  position: relative;
+  margin-top: 100px;
+  width: 250px;
+  height: 250px;
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #000;
+  cursor: pointer;
+  position: absolute;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.rock {
+  top: 0;
+  left: 85px;
+  border: 10px solid #0074d9;
+}
+
+.paper {
+  bottom: 0;
+  left: 0;
+  border: 10px solid #ff851b;
+}
+
+.scissors {
+  bottom: 0;
+  right: 0;
+  border: 10px solid #b10dc9;
+}
+
+/* Result Screen */
+.result-screen {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-top: 80px;
+  text-align: center;
+}
+
+.result-side p {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.pick {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.result-text h2 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.result-text p {
+  margin: 5px 0 15px;
+  font-size: 14px;
+}
+
+#playAgain {
+  background-color: white;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Hurray Screen */
+.hurray-screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  color: white;
+}
+
+.hurray-screen .trophy {
+  font-size: 100px;
+  margin-bottom: 20px;
+}
+
+.hurray-screen h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.hurray-screen p {
+  font-size: 20px;
+  margin: 10px 0 20px;
+}
+
+#playAgainHurray {
+  background-color: white;
+  color: #333;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Bottom Buttons */
+.bottom-buttons {
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+  display: flex;
+  gap: 10px;
+}
+
+.bottom-buttons button {
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Rules Popup */
+.rules-popup {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 40px;
+  background-color: #004f2d;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+}
+
+.rules-content {
+  position: relative;
+}
+
+.rules-content h3 {
+  margin-top: 0;
+}
+
+.rules-content ul {
+  padding-left: 20px;
+}
+
+#closeRules {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+
+/* 🔥 Winner Animation */
+.winner {
+  position: relative;
+  animation: bubble 1.5s ease-in-out infinite;
+}
+
+@keyframes bubble {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 25px 10px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+/* Optional: make the winner pick glow slightly */
+.pick.winner {
+  background-color: #fff;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
