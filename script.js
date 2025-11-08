@@ -31,7 +31,7 @@ function showResult(userChoice, computerChoice) {
   userPickEl.innerHTML = icons[userChoice];
   computerPickEl.innerHTML = icons[computerChoice];
 
-  // Remove any old animation classes
+ 
   userPickEl.classList.remove("winner");
   computerPickEl.classList.remove("winner");
 
@@ -45,7 +45,7 @@ function showResult(userChoice, computerChoice) {
     userScore++;
     nextBtn.style.display = "inline-block";
 
-    // ✨ Add bubbling animation to user's circle
+  
     userPickEl.classList.add("winner");
 
   } else {
@@ -53,7 +53,7 @@ function showResult(userChoice, computerChoice) {
     computerScore++;
     nextBtn.style.display = "none";
 
-    // ✨ Add bubbling animation to computer's circle
+    
     computerPickEl.classList.add("winner");
   }
 
@@ -71,16 +71,19 @@ function updateScores() {
 document.getElementById("playAgain").addEventListener("click", () => {
   resultScreen.style.display = "none";
   game.style.display = "block";
+  nextBtn.style.display = "none";
 });
 
 document.getElementById("playAgainHurray").addEventListener("click", () => {
   hurrayScreen.style.display = "none";
   game.style.display = "block";
+  nextBtn.style.display = "none";
 });
 
 nextBtn.addEventListener("click", () => {
   resultScreen.style.display = "none";
   hurrayScreen.style.display = "flex";
+  nextBtn.style.display = "none";
 });
 
 const rulesBtn = document.getElementById("rulesBtn");
@@ -97,69 +100,3 @@ closeRules.addEventListener("click", () => {
 
 
 
-// ====== SELECT ELEMENTS ======
-const userScoreEl = document.querySelector('.score1 span');
-const computerScoreEl = document.querySelector('.score2 span');
-
-// ====== INITIALIZE SCORES ======
-let userScore = 0;
-let computerScore = 0;
-
-// ====== LOAD SAVED SCORES FROM LOCAL STORAGE ======
-function loadScores() {
-  const savedUserScore = localStorage.getItem('userScore');
-  const savedComputerScore = localStorage.getItem('computerScore');
-
-  if (savedUserScore !== null) {
-    userScore = parseInt(savedUserScore);
-  }
-  if (savedComputerScore !== null) {
-    computerScore = parseInt(savedComputerScore);
-  }
-
-  updateScoreDisplay();
-}
-
-// ====== UPDATE SCORE DISPLAY ======
-function updateScoreDisplay() {
-  userScoreEl.textContent = userScore;
-  computerScoreEl.textContent = computerScore;
-}
-
-// ====== SAVE SCORES TO LOCAL STORAGE ======
-function saveScores() {
-  localStorage.setItem('userScore', userScore);
-  localStorage.setItem('computerScore', computerScore);
-}
-
-// ====== RESET SCORES (Optional Button) ======
-function resetScores() {
-  userScore = 0;
-  computerScore = 0;
-  saveScores();
-  updateScoreDisplay();
-}
-
-// ====== EXAMPLE GAME LOGIC ======
-function playRound(userChoice) {
-  const choices = ['rock', 'paper', 'scissors'];
-  const computerChoice = choices[Math.floor(Math.random() * 3)];
-
-  if (
-    (userChoice === 'rock' && computerChoice === 'scissors') ||
-    (userChoice === 'scissors' && computerChoice === 'paper') ||
-    (userChoice === 'paper' && computerChoice === 'rock')
-  ) {
-    userScore++;
-  } else if (userChoice !== computerChoice) {
-    computerScore++;
-  }
-
-  saveScores(); // save after each round
-  updateScoreDisplay();
-
-  console.log(`You: ${userChoice}, PC: ${computerChoice}`);
-}
-
-// ====== RUN ON PAGE LOAD ======
-window.addEventListener('DOMContentLoaded', loadScores);
